@@ -6,7 +6,8 @@ createApp({
     return{
       chiamataAxios: "https://flynn.boolean.careers/exercises/api/random/mail",
       risultatoChiamata: "",
-      indirizzi: []
+      indirizzi: [],
+      flag: true
     }
   },
   methods:{
@@ -18,11 +19,17 @@ createApp({
           this.indirizzi.push(this.risultatoChiamata);
         })
       }
+    },
+    loading(){
+      setTimeout(()=>{
+        this.flag = false;
+      },2000)
     }
     
   },
   mounted(){
     this.getApi();
+    this.loading();
   }
 
 }).mount("#app");

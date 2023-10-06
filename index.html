@@ -13,13 +13,16 @@
 <body>
   
   <div id="app">
-
-    <ul>
-      <li v-for="(indirizzo) in indirizzi">
-        <span>{{indirizzo}}</span>
-      </li>
-    </ul>
-
+    <div v-if="flag === true" class="loading">
+      <h1>Caricamento...</h1>
+    </div>
+    <div v-else class="email-list">
+      <ul>
+        <li v-for="(indirizzo) in indirizzi">
+          <span>{{indirizzo}}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <script src="js/script.js"></script>
