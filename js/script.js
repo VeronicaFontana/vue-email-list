@@ -5,15 +5,19 @@ createApp({
   data(){
     return{
       chiamataAxios: "https://flynn.boolean.careers/exercises/api/random/mail",
-      risultatoChiamata: ""
+      risultatoChiamata: "",
+      indirizzi: []
     }
   },
   methods:{
     getApi(){
-      axios.get(this.chiamataAxios)
-      .then((response)=>{
-        this.risultatoChiamata = "Indirizzo email: " + response.data.response
-      })
+      for(let i = 0; i < 10; i++){
+        axios.get(this.chiamataAxios)
+        .then((response)=>{
+          this.risultatoChiamata = "Indirizzo email: " + response.data.response;
+          this.indirizzi.push(this.risultatoChiamata);
+        })
+      }
     }
     
   },
